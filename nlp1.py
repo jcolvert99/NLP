@@ -43,15 +43,5 @@ print(spanish)
 chinese = blob.translate(to='zh')
 print(chinese)
 
+#translates back to english
 print(chinese.translate())
-
-
-
-
-
-
-
-
-
-
-
