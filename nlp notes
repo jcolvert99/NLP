@@ -1,0 +1,3 @@
+textblob- object oriented NLP processing library
+    -built on the NLTK- natural language toolkit- and pattern NLP libraries
+    -tokenization- splitting text into pieces called tokensm which are meaningful units like words
