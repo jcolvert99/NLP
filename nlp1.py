@@ -32,7 +32,7 @@ for sentence in blob.sentences:
 from textblob.sentiments import NaiveBayesAnalyzer
 
 blob = TextBlob(text, analyzer=NaiveBayesAnalyzer())
-'''
+
 
 for sentence in blob.sentences:
     print(sentence.sentiment)
@@ -45,3 +45,53 @@ print(chinese)
 
 #translates back to english
 print(chinese.translate())
+'''
+
+
+from textblob import Word
+
+index = Word('index')
+print(index.pluralize())
+
+cacti = Word ('cacti')
+print(cacti.singularize())
+
+#wordlist
+animals = TextBlob('dog cat fish bird').words
+print(animals.pluralize())
+
+
+#spellcheck and correction
+word = Word('theyr')
+#gives you a percent of the highest confidence the program has that you meant a certain word
+print(word.spellcheck())
+#displays the word the program is most confident you meant
+print(word.correct())
+
+#normalization
+word1 = Word("studies")
+word2 = Word("varieties")
+
+print(word1.stem())
+print(word2.stem())
+
+#lemmatize gives the correct singular version of the words
+print(word1.lemmatize())
+print(word2.lemmatize())
+
+
+#definitions, synonyms, and antonyms from WordNet
+happy = Word("happy")
+print(happy.definitions)
+#synonyms
+print(happy.synsets)
+
+for s in happy.synsets:
+    for l in s.lemmas():
+        print(l.name())
+
+synonym = happy.synsets[1].lemmas()[0].name()
+print(synonym)
+#antonyms
+antonym = happy.synsets[0].lemmas()[0].antonyms()[0].name()
+print(antonym)
